@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vue-head></vue-head>
+    <vue-head v-model="searchInput"></vue-head>
     <vue-history></vue-history>
     <vue-hot></vue-hot>
   </div>
@@ -11,6 +11,11 @@
   import vueHistory from './SearchAllHistory.vue'
   import vueHot from './SearchAllHot.vue'
   export default {
+    data(){
+        return {
+          searchInput: '',
+        }
+    },
     components: {
       vueHead,
       vueHistory,

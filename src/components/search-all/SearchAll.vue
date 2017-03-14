@@ -12,9 +12,9 @@
   import vueHot from './SearchAllHot.vue'
   export default {
     data(){
-        return {
-          searchInput: '',
-        }
+      return {
+        searchInput: '',
+      }
     },
     components: {
       vueHead,

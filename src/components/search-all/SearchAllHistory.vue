@@ -1,33 +1,24 @@
 <template>
-  <!--<div>-->
-    <!--<div v-if="isShow">-->
-      <!--历史记录-->
-      <!--<ul>-->
-        <!--<li v-for="item in games">-->
-          <!--<router-link to="" v-text="item.name"></router-link>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</div>-->
-    <!--<button type="button" @click="isShow =! isShow">{{isShow? "点击隐藏": "点击显示"}}</button>-->
-    <!--<hr>-->
-  <!--</div>-->
-  <div class="pl-30 bg-fff mb-20 "><!--把dis-no删掉就可以看到-->
+  <div v-if="isShow" class="pl-30 bg-fff mb-20 ">
     <div class="his clearfix border-bottom">
-      <input type="text" placeholder="搜索历史" class="f30 fl">
-      <div class="fr del">
-        <img src="../../assets/images/common/del.png" />
+      <sapn type="text" placeholder="" class="f30 fl color-999" >搜索历史</sapn>
+      <div class="fr del" @click="isShow = false">
+        <img src="../../assets/images/common/del.png"/>
       </div>
     </div>
-    <div class="Warrior clearfix border-bottom">
-      <div class="Warrior-l fl">
-        <h3 class="color-000 f32 dis-in">地下城勇士</h3>
-      </div>
-      <div class="fr Warrior-r pr-30">
-        <img src="../../assets/images/common/right.png" />
-      </div>
-    </div>
+    <ul>
+      <li v-for="item in historyList" class="Warrior clearfix border-bottom">
+        <a href="#" style="display: block; width: 100%;height: 100%">
+          <div class="Warrior-l fl " style="position: absolute">
+            <h3 class="color-000 f32 dis-in" v-text="item.name"></h3>
+          </div>
+          <div class="fr Warrior-r pr-30">
+            <img src="../../assets/images/common/right.png"/>
+          </div>
+        </a>
+      </li>
+    </ul>
   </div>
-
 </template>
 
 <script>
@@ -40,18 +31,27 @@
    */
   export  default {
     props: {
-      games: {
+      historyList: {
         type: Array,
         default(){
-          return [{name: "英雄联盟"}, {name: "英雄联盟"}];
+          return [];
         }
       }
     },
-    data() {
+    data(){
       return {
-        isShow: true
+        isShow: false
+      }
+    },
+    watch: {
+      historyList: function (val, oldVal) {
+        console.log(val, oldVal);
+        if (this.historyList != null && this.historyList.length > 0) {
+          this.isShow = true
+        }
       }
     }
+
   }
 </script>
 

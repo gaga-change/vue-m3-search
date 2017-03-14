@@ -5,7 +5,7 @@
     <vue-head v-model="searchInput"></vue-head>
 
     <!--.............................搜索历史......................-->
-    <vue-history></vue-history>
+    <vue-history :history-list="historyList"></vue-history>
 
     <!--.............................热门游戏......................-->
     <vue-hot :hot-list="hotList"></vue-hot>
@@ -25,6 +25,7 @@
       return {
         searchInput: null,
         hotList: null,
+        historyList: null,
         _num: null
       }
     },
@@ -36,14 +37,21 @@
     created(){
       this.setNum();
       this.setHostList();
+      this.setHistoryList();
     },
     methods: {
       setHostList() {
         http.getHot(this._num.hotNum).then((req) => {
           this.hotList = req.list;
-          console.log('??');
         }, () => {
-          console.log("数据请求错误");
+          console.log("热搜 数据请求错误");
+        })
+      },
+      setHistoryList() {
+        http.getHistory(this._num.historyNum).then((req) => {
+          this.historyList = req.list;
+        }, () => {
+          console.log("账号历史 数据请求错误");
         })
       },
       setNum() {

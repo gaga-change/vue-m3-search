@@ -1,0 +1,110 @@
+/*公用部分*/
+
+.common-color{color: #f65e46}
+.border-none{border: none}
+.mt-negative10{margin-top: -0.1rem}
+.mt-negative20{margin-top: -0.2rem}
+.mt-negative30{margin-top: -0.3rem}
+/*填补fixed留下的下方空块*/
+.fixedFill-lg{width: 100%;height: 1.92rem;}
+.fixedFill-mx{width: 100%;height: 0.96rem;}
+.farial{font-family:arial;}
+/*寄 字小图标*/
+.ji{width: 0.32rem;height: 0.32rem;font-size: 0.20rem;text-align: center;line-height: 0.32rem;background: #f65e46;
+    color: #fff;display: inline-block;vertical-align: 15%}
+/*每个放内容的块*/
+.box{width: 100%;padding: 0.4rem 0.3rem;background: #fff;position: relative;}
+.box2{width: 100%;padding: 0 0.3rem;background: #fff;position: relative;}
+.box3{width: 100%; max-width: 768px;padding: 0.3rem;background: #fff;position: relative; }
+
+/*每个块的一行内容*/
+.line{line-height: 100%;}
+.lh110{line-height: 1.1rem;}
+.lh120{line-height: 1.2rem;}
+
+/*选择购买个数*/
+.count{width: 3.1rem;height: 0.8rem;position: absolute;right: .3rem;top: 0.25rem}
+.count2{width: 3.1rem;height: 0.8rem;position: absolute;right: 1rem;top: 0.25rem}
+.add,.reduce{width: 0.8rem;height: 0.8rem;border: 1px solid #e8e8e8; font-family:arial;background: #fff; cursor:pointer;}
+.num{width: 1.4rem;height: 0.8rem;border: none;border-bottom: 1px solid #e8e8e8;border-top: 1px solid #e8e8e8;text-align: center}
+
+/*输入收货或者发布信息*/
+.input-message{width: 65%;position: absolute;left: 35%}
+
+/*提交按钮*/
+.submit-button{width: 50%;height: 1rem;background: #f65e46;color: #fff;font-size: 0.32rem;border: none;
+    position: absolute;right: 0.3rem;top: 0.26rem}
+
+/*左右切换按钮*/
+.button-switch{ display: block; width: 1.18rem; height: .59rem}
+.label-switch {display: inline-block;vertical-align: middle;width: 100%;border-radius:.4rem;box-sizing: border-box;height: 100%;position: relative;cursor: pointer;-webkit-align-self: center;align-self: center;}
+.label-switch .checkbox {width: 100%;border-radius: .4rem;box-sizing: border-box;height: 100%;background: #9f9d9d;z-index: 0;margin: 0;padding: 0;-webkit-appearance: none;-moz-appearance: none;-ms-appearance: none;appearance: none;border: none;cursor: pointer;position: relative;}
+.label-switch .checkbox:before {content: ' ';position: absolute;left: 0px;top: 0px; margin:2%; width:96%;border-radius: .4rem;box-sizing: border-box;height: 98%;background: #9f9d9d;z-index: 1;-webkit-transition-duration: 300ms;transition-duration: 300ms;-webkit-transform: scale(1);transform: scale(1);}
+.label-switch .checkbox:after {content: ' ';height: 92%;width: 50%;border-radius: .4rem;background: #fff;position: absolute;z-index: 2;top: 0px;left: 0px;margin:2%;box-shadow: 0 .05rem 0.12rem rgba(0, 0, 0, 0.4);-webkit-transform: translateX(0px);transform: translateX(0px);-webkit-transition-duration: 300ms;transition-duration: 300ms;}
+.label-switch input[type="checkbox"] {display: none;}
+.label-switch input[type="checkbox"]:checked + .checkbox {background: #4cd964;}
+.label-switch input[type="checkbox"]:checked + .checkbox:before {-webkit-transform: scale(0);transform: scale(0);}
+.label-switch input[type="checkbox"]:checked + .checkbox:after {-webkit-transform: translateX(92%);transform: translateX(92%);}
+.label-switch input[type="checkbox"] + .checkbox {-webkit-transition-duration: 0;transition-duration: 0;}
+.label-switch input[type="checkbox"] + .checkbox:after,html.android .label-switch input[type="checkbox"] + .checkbox:before {-webkit-transition-duration: 0;transition-duration: 0;}
+
+/*个别部分*/
+.kucun-img{width: 0.32rem;height: 0.32rem;}
+.safe-buy-img{width: 0.32rem;height: 0.32rem;vertical-align: -5%}
+
+/* 列表样式 */
+.lists01{ height:1.11rem;}
+.lists01 .sp01{width:35%; }
+i.curline{display:inline-block; height:.4rem; width:.06rem; margin-right:.1rem; margin-left:-.16rem; background:#f75e46;vertical-align: -6% ;   }
+.lists01 .sp02{width:50%;}
+.lists01 .sp02 input{ border:0; width:100%;  }
+.lists01 .sp03{width:15%;}
+.itempalce{ height:1.7rem; line-height:1.7; }
+.nextstep{line-height:.92rem; border:0; width:100%; }
+
+/* 登录输入验证码 */
+.loginmob .loginmob01{ padding:.6rem 0}
+.loginmob .loginmob02{ line-height:1.2rem; height:1.2rem;}
+.loginmob .loginmob02-l{ width:65%; overflow:Hidden; }
+.loginmob .loginmob02-l input{ border:0; line-height:1.2rem; position:absolute; top:0; width:100%; padding-left:10%;}
+.loginmob .loginmob02-r{ width:35%; overflow:Hidden;}
+.loginmob .loginmob02-r .countdown{ width:100%; line-height:.8rem;  }
+
+
+.conhv{width: 100%;height: 100%;max-width: 768px;position: absolute;top: 0;left: 150%;right: 0;margin: 0 -50%; z-index: 120;overflow-y: hidden;overflow-x: hidden;-webkit-transform-origin: 0px 0px;-webkit-transform: scale(1, 1);opacity: 1; display:block;}
+.fixb{position:fixed; bottom:0; }
+.conhv-01{width: 100%;height: 100%;max-width: 768px;position: absolute;top: 0;left: 250%;right: 0;margin: 0 -50%; z-index: 120;overflow-y: hidden;overflow-x: hidden;-webkit-transform-origin: 0px 0px;-webkit-transform: scale(1, 1);opacity: 1; display:block;}
+
+/*安心买服务规定*/
+.phlog{width: 85%; min-width: 7rem; height: auto; border-radius: .2rem; margin: .36rem auto .25rem; position: relative; background-color: #fff; opacity: 1;}
+.pgbis{ width: 100%; border-radius: .15rem; background: #fff; padding:0.1rem 0.3rem 0.3rem; box-sizing: border-box;}
+.pgbis h2{ height:.92rem; line-height:.92rem; text-align:center; font-size:0.32rem;}
+.pgbis p{ font-size:.32rem; line-height:.55rem; color:#666;}
+
+
+/*页面路由效果*/
+.sidebarMove {height: 100%;overflow: hidden;animation: sidebar-body-move .5s ease;-webkit-animation: sidebar-body-move .5s ease;position: relative;left: -100%}
+.sidebarBack {height: 100%;overflow: hidden; position: relative; animation: sidebar-body-back .50s ease;-webkit-animation: sidebar-body-back .50s ease; left: 0;}
+.sidebarMove body {height: 100%;}
+.sidebarMove-hov {height: 100%;position: relative;left: -100%;}
+
+.sidebarMove-01 {height: 100%;overflow: hidden;animation: sidebar-body-move-01 .5s ease;-webkit-animation: sidebar-body-move-01 .5s ease;position: relative;left: -200%}
+.sidebarMove-01 body {height: 100%;}
+.sidebarBack-01 {position: relative; height: 100%;overflow: hidden;animation: sidebar-body-back-01 .50s ease;-webkit-animation: sidebar-body-back-01 .50s ease; left: -100%;}
+.sidebarMove-01-hov{height: 100%;position: relative;left: -200%}
+
+
+@keyframes sidebar-body-move {0% {left: 0}100% {left: -100%}}
+@keyframes sidebar-body-back {0% {left: -100%}100% {left: 0}}
+@-webkit-keyframes sidebar-body-move {0% {left: 0}100% {left: -100%}}
+@-webkit-keyframes sidebar-body-back {0% {left: -100%}100% {left: 0}}
+
+@keyframes sidebar-body-move-01 {0% {left: -100%}100% {left: -200%}}
+@keyframes sidebar-body-back-01 {0% {left: -200%}100% {left: -100%}}
+@-webkit-keyframes sidebar-body-move-01 {0% {left: -100%}100% {left: -200%}}
+@-webkit-keyframes sidebar-body-back-01 {0% {left: -200%}100% {left:-100%}}
+
+
+
+
+

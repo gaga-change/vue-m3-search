@@ -1,10 +1,10 @@
 /**
  * Created by 严俊东 on 2017/3/14.
  */
+
 let data = require('./games.json')
 // data = null;
 // data.success = false;
-
 
 /**
  * 搜索返回数据
@@ -15,7 +15,7 @@ let data = require('./games.json')
    *  }
  */
 
-function getSearch(num) {
+function getHot(num) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       let res = data;
@@ -48,12 +48,14 @@ function getSearch(num) {
   })
 }
 
-module.exports = getSearch;
-return;
+export {getHot};
 
-getSearch(15).then(function (res) {
-  console.log(res.list.length)
-}, function () {
-  console.log("err");
-});
+// module.exports = getSearch;
+// return;
+//
+// getSearch(15).then(function (res) {
+//   console.log(res.list.length)
+// }, function () {
+//   console.log("err");
+// });
 

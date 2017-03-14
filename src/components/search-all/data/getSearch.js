@@ -5,7 +5,6 @@ let data = require('./games.json')
 // data = null;
 // data.success = false;
 
-
 /**
  * 搜索返回数据
  * @param num 数量
@@ -48,13 +47,14 @@ function getSearch(num, str = '') {
     return []
   })
 }
+export {getSearch}
 
-module.exports = getSearch;
-return;
-
-getSearch(15, 'avcdffddfsa').then(function (res) {
-  console.log(res.list.length)
-}, function () {
-  console.log("err");
-});
+// module.exports = getSearch;
+// return;
+//
+// getSearch(15, 'avcdffddfsa').then(function (res) {
+//   console.log(res.list.length)
+// }, function () {
+//   console.log("err");
+// });
 

@@ -14,9 +14,11 @@
 </template>
 
 <script>
+  import a from './data/index.js'
   import vueHead from './SearchAllHead.vue'
   import vueHistory from './SearchAllHistory.vue'
   import vueHot from './SearchAllHot.vue'
+  console.log(a);
   export default {
     data(){
       return {

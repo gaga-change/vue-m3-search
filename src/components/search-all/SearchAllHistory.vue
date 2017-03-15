@@ -1,7 +1,7 @@
 <template>
-  <div v-if="isShow" class="pl-30 bg-fff mb-20 ">
+  <div v-if="isShow && show" class="pl-30 bg-fff mb-20 ">
     <div class="his clearfix border-bottom">
-      <sapn type="text" placeholder="" class="f30 fl color-999" >搜索历史</sapn>
+      <span type="text" placeholder="" class="f30 fl color-999" >搜索历史</span>
       <div class="fr del" @click="isShow = false">
         <img src="../../assets/images/common/del.png"/>
       </div>
@@ -10,7 +10,7 @@
       <li v-for="item in historyList" class="Warrior clearfix border-bottom">
         <a href="#" style="display: block; width: 100%;height: 100%">
           <div class="Warrior-l fl " style="position: absolute">
-            <h3 class="color-000 f32 dis-in" v-text="item.name"></h3>
+            <h3 class="color-000 f32 dis-in ph" v-text="item.name"></h3>
           </div>
           <div class="fr Warrior-r pr-30">
             <img src="../../assets/images/common/right.png"/>
@@ -36,6 +36,9 @@
         default(){
           return [];
         }
+      },
+      show: {
+        default: false
       }
     },
     data(){
@@ -45,7 +48,7 @@
     },
     watch: {
       historyList: function (val, oldVal) {
-        console.log(val, oldVal);
+//        console.log(val, oldVal);
         if (this.historyList != null && this.historyList.length > 0) {
           this.isShow = true
         }

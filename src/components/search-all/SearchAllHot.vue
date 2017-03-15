@@ -9,7 +9,7 @@
   <!--</ul>-->
   <!--</div>-->
   <!--<hr>-->
-  <div class="hot pl-30 bg-fff border-bottom ">
+  <div v-if="show" class="hot pl-30 bg-fff border-bottom ">
     <h4 class="f30 color-999 border-bottom">5173热搜</h4>
     <div v-for="item in showList" class="game-n ps-r clearfix border-bottom">
       <!--<div  class="game-n ps-r clearfix border-bottom">-->
@@ -68,6 +68,9 @@
         default(){
           return [];
         }
+      },
+      show: {
+        default: false
       }
     },
     computed: {

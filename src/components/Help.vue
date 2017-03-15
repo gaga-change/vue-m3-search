@@ -27,9 +27,9 @@
   export default{
     data(){
       return {
-        hotNum: 15,
-        searchNum: 15,
-        historyNum: 15
+        hotNum: 10,
+        searchNum: 6,
+        historyNum: 4
       }
     }
   }

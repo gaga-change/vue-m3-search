@@ -1,14 +1,24 @@
 <template>
   <div class="search2" id="wrapper">
-
-    <!--.............................搜索框中......................-->
-    <vue-head v-model="searchInput"></vue-head>
+    <!--.............................搜索框组......................-->
+    <vue-head
+      v-model="searchInput"
+      @input="changeInput"
+      :search-list="searchList"
+      :show-other="showOther"
+    ></vue-head>
 
     <!--.............................搜索历史......................-->
-    <vue-history :history-list="historyList"></vue-history>
+    <vue-history
+      :history-list="historyList"
+      :show="showOther"
+    ></vue-history>
 
     <!--.............................热门游戏......................-->
-    <vue-hot :hot-list="hotList"></vue-hot>
+    <vue-hot
+      :hot-list="hotList"
+      :show="showOther"
+    ></vue-hot>
   </div>
 
 </template>
@@ -23,10 +33,12 @@
     name: "HomeSearch",
     data(){
       return {
-        searchInput: null,
-        hotList: null,
-        historyList: null,
-        _num: null
+        searchInput: null, // 搜索输入框
+        hotList: null, // 热搜
+        historyList: null, // 历史列表
+        searchList: null, // 搜索显示的列表
+        _num: null,  // 控制每种列表的显示条数（上线删除）
+        showOther: true // 控制历史记录、热搜不会和搜索引擎同时出现
       }
     },
     components: {
@@ -54,6 +66,13 @@
           console.log("账号历史 数据请求错误");
         })
       },
+      setSearchList(str){
+        http.getSearch(this._num.searchNum, str).then((req) => {
+          this.searchList = req.list;
+        }, () => {
+          console.log("账号历史 数据请求错误");
+        })
+      },
       setNum() {
         let query = this.$route.query;
         let num = {hotNum: 15, searchNum: 15, historyNum: 15};
@@ -63,6 +82,15 @@
           }
         }
         this._num = num;
+      },
+      // 输入内容改变的回调函数
+      changeInput() {
+        if (this.searchInput != null && this.searchInput.length != 0) {
+          this.showOther = false;
+        } else {
+          this.showOther = true;
+        }
+        this.setSearchList(this.searchInput)
       }
     }
   }

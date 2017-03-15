@@ -1,23 +1,22 @@
 <template>
-  <div v-if="isShow && show" class="pl-30 bg-fff mb-20 ">
+  <div v-if="isShow && show" class="pl-30 bg-fff mb-20  ">
     <div class="his clearfix border-bottom">
-      <span type="text" placeholder="" class="f30 fl color-999" >搜索历史</span>
+      <h3  class="f30 fl color-999">搜索历史</h3>
       <div class="fr del" @click="isShow = false">
-        <img src="../../assets/images/common/del.png"/>
+        <img src="../../assets/images/common/del.png" />
       </div>
     </div>
-    <ul>
-      <li v-for="item in historyList" class="Warrior clearfix border-bottom">
-        <a href="#" style="display: block; width: 100%;height: 100%">
-          <div class="Warrior-l fl " style="position: absolute">
-            <h3 class="color-000 f32 dis-in ph" v-text="item.name"></h3>
+    <div  v-for="item in historyList"  class="Warrior clearfix border-bottom">
+      <div class="rake-con clearfix border-bottom">
+        <a href="#" class="dis-b clearfix ps-r" >
+          <div class="rake-con-l  ps-a">
+            <i :class="{'ph': item.type == 2}"></i>
+            <h4 class="f32 color-000 dis-in" v-text="item.name"></h4>
           </div>
-          <div class="fr Warrior-r pr-30">
-            <img src="../../assets/images/common/right.png"/>
-          </div>
+          <img src="../../assets/images/common/right.png" class="ps-a "/>
         </a>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
 

@@ -12,12 +12,11 @@
       </div>
       <h3 class="color-f7 f32 header-r" @click="goBack">取消</h3>
     </div>
-    <div v-if="!showOther" class="rake pl-30 bg-fff " style="position: absolute;width: 100%"><!--删除dis-no就可以看见-->
-      <div class="rake-con clearfix border-bottom"
-           v-for="item in searchList">
-        <a href="#" class="dis-b clearfix ps-r">
+    <div v-if="!showOther" class="rake pl-30 bg-fff " style="position: absolute;width: 100%">
+      <div class="rake-con clearfix border-bottom" v-for="item in searchList">
+        <a href="#" class="dis-b clearfix ps-r" >
           <div class="rake-con-l  ps-a">
-            <i></i>
+            <i :class="{'ph': item.type == 2}"></i>
             <h4 class="f32 color-000 dis-in" v-text="item.name"></h4>
           </div>
           <img src="../../assets/images/common/right.png" class="ps-a "/>
@@ -25,6 +24,8 @@
       </div>
     </div>
   </div>
+
+
 </template>
 
 <script>

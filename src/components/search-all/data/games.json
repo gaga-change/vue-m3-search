@@ -21,6 +21,20 @@
       "isRecharge": false
     },
     {
+      "id": 100524,
+      "py": "yys",
+      "pyfirst": "y",
+      "otherName": null,
+      "catagoryId": "YX17030721342486300110",
+      "name": "阴阳师",
+      "hot": true,
+      "type": "2",
+      "gameImageUrl": "http://m5173.img-cn-hangzhou.aliyuncs.com/6924243df9944432bb2ffbf840ef3cfc.jpg",
+      "parentId": 1,
+      "minDiscount": null,
+      "isRecharge": true
+    },
+    {
       "id": 100459,
       "py": "cj,zj,cq,zq",
       "pyfirst": "c",
@@ -47,20 +61,6 @@
       "parentId": 1,
       "minDiscount": null,
       "isRecharge": false
-    },
-    {
-      "id": 100524,
-      "py": "yys",
-      "pyfirst": "y",
-      "otherName": null,
-      "catagoryId": "YX17030721342486300110",
-      "name": "阴阳师",
-      "hot": true,
-      "type": "2",
-      "gameImageUrl": "http://m5173.img-cn-hangzhou.aliyuncs.com/6924243df9944432bb2ffbf840ef3cfc.jpg",
-      "parentId": 1,
-      "minDiscount": null,
-      "isRecharge": true
     },
     {
       "id": 100493,

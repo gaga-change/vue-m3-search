@@ -8,13 +8,13 @@
     </div>
     <div  v-for="item in historyList"  class="Warrior clearfix border-bottom">
       <div class="rake-con clearfix border-bottom">
-        <a href="#" class="dis-b clearfix ps-r" >
+        <router-link :to="{name:'ChooseClass', query:{gid:item.catagoryId,gname:item.name,isRecharge: item.isRecharge} }" class="dis-b clearfix ps-r" >
           <div class="rake-con-l  ps-a">
             <i :class="{'ph': item.type == 2}"></i>
             <h4 class="f32 color-000 dis-in" v-text="item.name"></h4>
           </div>
           <img src="../../assets/images/common/right.png" class="ps-a "/>
-        </a>
+        </router-link>
       </div>
     </div>
   </div>

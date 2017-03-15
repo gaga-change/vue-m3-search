@@ -1,56 +1,17 @@
 <template>
-  <!--<div>-->
-  <!--<div v-if="isShow">-->
-  <!--5173热搜-->
-  <!--<ul>-->
-  <!--<li v-for="item in games">-->
-  <!--<router-link to="" v-text="item.name"></router-link>-->
-  <!--</li>-->
-  <!--</ul>-->
-  <!--</div>-->
-  <!--<hr>-->
   <div v-if="show" class="hot pl-30 bg-fff border-bottom ">
     <h4 class="f30 color-999 border-bottom">5173热搜</h4>
     <div v-for="item in showList" class="game-n ps-r clearfix border-bottom">
       <!--<div  class="game-n ps-r clearfix border-bottom">-->
-      <a class="fl f32 color-000" href="#" v-text="item[0].name"></a>
+      <router-link
+        :to="{name:'ChooseClass', query:{gid:item[0].catagoryId,gname:item[0].name,isRecharge: item[0].isRecharge} }"
+        class="fl f32 color-000" v-text="item[0].name"></router-link>
       <i class="pa"></i>
-      <a class="fl f32 color-000" href="#"><span v-text="item[1]?item[1].name:'' "></span></a>
+      <router-link
+        :to="{name:'ChooseClass', query:item[1]?{gid:item[1].catagoryId,gname:item[1].name,isRecharge: item[1].isRecharge}: {} }"
+        class="fl f32 color-000"><span v-text="item[1]?item[1].name:'' "></span></router-link>
     </div>
-
-    <!--<div class="game-n ps-r clearfix border-bottom">
-      <a class="fl f32 color-000" href="#">英雄联盟</a>
-      <i class="pa"></i>
-      <a class="fl f32 color-000" href="#"><span>王者荣耀(手游）</span></a>
-    </div>
-    <div class="game-n ps-r clearfix border-bottom">
-      <a class="fl f32 color-000" href="#">魔兽世界</a>
-      <i class="pa"></i>
-      <a class="fl f32 color-000" href="#"><span>梦幻西游(手游)</span></a>
-    </div>
-    <div class="game-n ps-r clearfix border-bottom">
-      <a class="fl f32 color-000" href="#">天涯明月刀</a>
-      <i class="pa"></i>
-      <a class="fl f32 color-000" href="#"><span>阴阳师(手游）</span></a>
-    </div>
-    <div class="game-n ps-r clearfix border-bottom">
-      <a class="fl f32 color-000" href="#">穿越火线</a>
-      <i class="pa"></i>
-      <a class="fl f32 color-000" href="#"><span>火线精英(手游）</span></a>
-    </div>
-    <div class="game-n ps-r clearfix border-bottom">
-      <a class="fl f32 color-000" href="#">疾风之刀</a>
-      <i class="pa"></i>
-      <a class="fl f32 color-000" href="#"><span>街篮(手游）</span></a>
-    </div>
-    <div class="game-n ps-r clearfix ">
-      <a class="fl f32 color-000" href="#">魔域</a>
-      <i class="pa"></i>
-      <a class="fl f32 color-000" href="#"><span>倩女幽魂(手游)</span></a>
-    </div>-->
-
   </div>
-  <!--</div>-->
 </template>
 
 <script>

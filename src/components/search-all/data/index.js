@@ -5,9 +5,12 @@
 import {getSearch} from './getSearch.js'
 import {getHistory} from './getHistory.js'
 import {getHot} from './getHot.js'
+import Vue from 'vue'
+
 
 export default  {
-  getSearch,
-  getHistory,
-  getHot
+    vm: new Vue(),
+    getSearch,
+    getHistory,
+    getHot
 }

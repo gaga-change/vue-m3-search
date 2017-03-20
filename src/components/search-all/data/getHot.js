@@ -2,7 +2,7 @@
  * Created by 严俊东 on 2017/3/14.
  */
 
-let data = require('./games.json')
+let data = require('./games.json');
 // data = null;
 // data.success = false;
 
@@ -16,36 +16,30 @@ let data = require('./games.json')
  */
 
 function getHot(num) {
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      let res = data;
-      if (
-        res == null
-        || res['success'] == null
-        || res['categoryList'] == null
-        || res['success'] == false
-      ) {
-        reject()
-      }
-      else if (res.success) {
-        if (
-          typeof res['categoryList'] == 'object'
-          &&
-          res['categoryList'] instanceof Array
-        ) {
-          let list = res['categoryList'].filter((val, index) => {
-            if (index < num) {
-              return true;
-            } else {
-              return false;
+    return new Promise((resolve) => {
+        this.vm.$http.post(
+            '/api/mobile-searchCenter-service/rs/hotSearchService/queryAllHotSearch',
+            {
+                pageIndex: 1,
+                pageSize: num
+            },
+            {
+                headers: {
+                    contentType: "application/json; charset=UTF-8",
+                    dataType: "json"
+                }
             }
-          });
-          resolve({list: list})
-        }
-      }
-    }, 200);
-    return []
-  })
+        ).then((res) => {
+            res = res.body;
+            if(res.responseStatus.code == '00') {
+                console.log(res.result)
+                resolve({list: res.result});
+            }
+        }, () => {
+            console.log("请求错误！");
+            resolve({list: []})
+        });
+    })
 }
 
 export {getHot};

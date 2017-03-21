@@ -15,36 +15,36 @@ let data = require('./games.json')
  */
 
 function getHistory(num) {
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      let res = data;
-      if (
-        res == null
-        || res['success'] == null
-        || res['categoryList'] == null
-        || res['success'] == false
-      ) {
-        reject()
-      }
-      else if (res.success) {
-        if (
-          typeof res['categoryList'] == 'object'
-          &&
-          res['categoryList'] instanceof Array
-        ) {
-          let list = res['categoryList'].filter((val, index) => {
-            if (index < num) {
-              return true;
-            } else {
-              return false;
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            let res = data;
+            if (
+                res == null
+                || res['success'] == null
+                || res['categoryList'] == null
+                || res['success'] == false
+            ) {
+                reject()
             }
-          });
-          resolve({list: list})
-        }
-      }
-    }, 200);
-    return []
-  })
+            else if (res.success) {
+                if (
+                    typeof res['categoryList'] == 'object'
+                    &&
+                    res['categoryList'] instanceof Array
+                ) {
+                    let list = res['categoryList'].filter((val, index) => {
+                        if (index < num) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                    resolve({list: list})
+                }
+            }
+        }, 200);
+        return []
+    })
 }
 
 export {getHistory};

@@ -31,7 +31,7 @@ function getHot(num) {
             }
         ).then((res) => {
             res = res.body;
-            if(res.responseStatus.code == '00') {
+            if (res.responseStatus.code == '00') {
                 console.log(res.result)
                 resolve({list: res.result});
             }

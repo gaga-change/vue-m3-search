@@ -2,9 +2,15 @@
     <div>
 
         <h1 style="font-size:.5rem">辅助菜单</h1>
+        <hr>
+        <h1 style="font-size:.5rem">当前登入状态： <span v-text="loginAccount == null? '还没登入': '已登入' + loginAccount"></span>
+        </h1>
         <ul>
             <li>
                 <router-link :to="{path:'/search-all', query:{hotNum, searchNum,historyNum } }">进入搜索功能</router-link>
+            </li>
+            <li>
+                <router-link :to="{name: 'QuickLogin'}">进入登入页面</router-link>
             </li>
         </ul>
         <h1 style="font-size:.3rem">配置条数</h1>
@@ -24,13 +30,24 @@
 </template>
 
 <script>
+    import loginHttp from './quickLogin/http'
     export default{
         data(){
             return {
                 hotNum: 10,
                 searchNum: 6,
-                historyNum: 4
+                historyNum: 4,
+                loginAccount: null
             }
+        },
+        created(){
+            loginHttp.getAccount().then((resq) => {
+                console.log(resq);
+                if (resq.success ) {
+                    this.loginAccount = resq.userInfo.loginAccount;
+                    console.log(this.loginAccount)
+                }
+            })
         }
     }
 </script>

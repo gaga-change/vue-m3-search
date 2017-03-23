@@ -2,10 +2,6 @@
  * Created by 严俊东 on 2017/3/14.
  */
 
-let data = require('./games.json');
-// data = null;
-// data.success = false;
-
 /**
  * 搜索返回数据
  * @param num 数量
@@ -43,13 +39,3 @@ function getHot(num) {
 }
 
 export {getHot};
-
-// module.exports = getSearch;
-// return;
-//
-// getSearch(15).then(function (res) {
-//   console.log(res.list.length)
-// }, function () {
-//   console.log("err");
-// });
-

@@ -95,5 +95,5 @@
 </script>
 
 <style>
-    @import "../../assets/css/common/search-ld.css";
+    @import "/css/common/search-ld.css";
 </style>

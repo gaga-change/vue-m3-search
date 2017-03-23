@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <link rel="stylesheet" :href="'/css/fost-base.css'+'?v=123'">
         <router-view></router-view>
     </div>
 </template>
@@ -11,6 +12,5 @@
 </script>
 
 <style>
-    @import "assets/css/fost-base.css";
-    @import "assets/css/common/common-zyp.css";
+    @import "/css/common/common-zyp.css";
 </style>

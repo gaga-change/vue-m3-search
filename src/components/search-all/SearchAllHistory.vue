@@ -3,7 +3,7 @@
         <div class="his clearfix border-bottom">
             <h3 class="f30 fl color-999">搜索历史</h3>
             <div class="fr del" @click="isShow = false">
-                <img src="../../assets/images/common/del.png"/>
+                <img src="/images/common/del.png"/>
             </div>
         </div>
         <div v-for="item in historyList" class="Warrior clearfix border-bottom">
@@ -15,7 +15,7 @@
                         <i :class="{'ph': item.type == 2}"></i>
                         <h4 class="f32 color-000 dis-in" v-text="item.name"></h4>
                     </div>
-                    <img src="../../assets/images/common/right.png" class="ps-a "/>
+                    <img src="/images/common/right.png" class="ps-a "/>
                 </router-link>
             </div>
         </div>
@@ -58,7 +58,3 @@
 
     }
 </script>
-
-<style>
-
-</style>

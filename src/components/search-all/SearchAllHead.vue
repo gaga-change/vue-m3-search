@@ -18,7 +18,7 @@
                         :to="{name:'ChooseClass', query:{gid:item.catagoryId,gname:item.name,isRecharge: item.isRecharge} }"
                         class="dis-b clearfix ps-r">
                     <div class="rake-con-l  ps-a">
-                        <i :class="{'ph': item.type == 2}"></i>
+                        <i :class="{'ph': item.gameType == 2}"></i>
                         <h4 class="f32 color-000 dis-in" v-text="item.name"></h4>
                     </div>
                     <img src="/images/common/right.png" class="ps-a "/>

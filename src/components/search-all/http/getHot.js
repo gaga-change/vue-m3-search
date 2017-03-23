@@ -12,6 +12,15 @@
  */
 
 function getHot(num) {
+
+    // this.vm.$http.post(
+    //     '/api/mobile-searchCenter-service/rs/userCache/save',
+    //     {mapRequest: {gameId: 'YX17030721535028100230'}}
+    // ).then((res) => {
+    //
+    // });
+
+
     return new Promise((resolve) => {
         this.vm.$http.post(
             '/api/mobile-searchCenter-service/rs/hotSearchService/queryAllHotSearch',
@@ -28,7 +37,6 @@ function getHot(num) {
         ).then((res) => {
             res = res.body;
             if (res.responseStatus.code == '00') {
-                console.log(res.result)
                 resolve({list: res.result});
             }
         }, () => {

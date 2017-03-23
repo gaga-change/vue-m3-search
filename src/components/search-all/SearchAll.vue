@@ -1,5 +1,5 @@
 <template>
-    <div class="search2" id="wrapper">
+    <div class="search2" id="wrapper" ref="abc">
         <!--.............................搜索框组......................-->
         <vue-head
                 v-model="searchInput"
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import http from './data/index.js'
+    import http from './http'
     import vueHead from './SearchAllHead.vue'
     import vueHistory from './SearchAllHistory.vue'
     import vueHot from './SearchAllHot.vue'
@@ -72,13 +72,7 @@
                 })
             },
             setNum() {
-                let query = this.$route.query;
-                let num = {hotNum: 15, searchNum: 15, historyNum: 15};
-                for (let attr in query) {
-                    if (num[attr]) {
-                        num[attr] = Number(query[attr]) || 15;
-                    }
-                }
+                let num = {hotNum: 12, searchNum: 10, historyNum: 4};
                 this._num = num;
             },
             // 输入内容改变的回调函数

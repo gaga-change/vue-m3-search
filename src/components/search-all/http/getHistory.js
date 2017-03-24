@@ -27,7 +27,7 @@ function getHistory(num = 4, logined = false) {
         if (logined) {
             console.log("有登入");
             this.vm.$http.post(
-                '/api/mobile-searchCenter-service/rs/userCache/listCache',
+                this.vm.$CONSTANTS.APISearchCenter + 'userCache/listCache',
                 {pageSize: num}
             ).then((res) => {
                 let resp = res.body;

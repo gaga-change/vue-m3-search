@@ -18,7 +18,7 @@ function getSearch(num = 10, str = '') {
             return
         }
         this.vm.$http.post(
-            '/api/mobile-searchCenter-service/rs/gameSearch/searchKeyword',
+            this.vm.$CONSTANTS.APISearchCenter + 'gameSearch/searchKeyword',
             {
                 mapRequest: {'keyword': str},
                 pageIndex: 1,

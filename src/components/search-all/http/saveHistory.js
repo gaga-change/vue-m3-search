@@ -17,7 +17,7 @@ function saveHistory(item, logined = false) {
         console.log(item);
         if (logined) {
             this.vm.$http.post(
-                '/api/mobile-searchCenter-service/rs/userCache/save',
+                this.vm.$CONSTANTS.APISearchCenter + 'userCache/save',
                 {mapRequest: {gameId: item.gameId}}
             ).then((res) => {
                 resolve();

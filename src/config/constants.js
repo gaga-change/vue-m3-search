@@ -7,6 +7,7 @@ const CONSTANTS = {
     // API: './',
 };
 CONSTANTS.APIGoods = CONSTANTS.API + 'mobile-goods-service/rs/'; // 商品接口
+CONSTANTS.APISearchCenter = CONSTANTS.API + 'mobile-searchCenter-service/rs/'; // 搜索接口
 CONSTANTS.APICategory = CONSTANTS.API + 'mobile-category-service/rs/'; // 游戏接口
 CONSTANTS.APILogin = CONSTANTS.API + 'mobile-user-service/rs/'; // 登录接口
 CONSTANTS.APIOrder = CONSTANTS.API + 'mobile-order-service/rs/'; // 订单接口

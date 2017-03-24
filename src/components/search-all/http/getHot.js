@@ -23,7 +23,7 @@ function getHot(num) {
 
     return new Promise((resolve) => {
         this.vm.$http.post(
-            '/api/mobile-searchCenter-service/rs/hotSearchService/queryAllHotSearch',
+            this.vm.$CONSTANTS.APISearchCenter + 'hotSearchService/queryAllHotSearch',
             {
                 pageIndex: 1,
                 pageSize: num

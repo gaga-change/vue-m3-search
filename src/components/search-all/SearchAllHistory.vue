@@ -9,7 +9,7 @@
         <div v-for="item in historyList" class="Warrior clearfix border-bottom">
             <div class="rake-con clearfix border-bottom">
                 <router-link
-                        :to="{name:'ChooseClass', query:{gid:item.catagoryId,gname:item.name,isRecharge: item.isRecharge} }"
+                        :to="{name:'ChooseClass', query:{gid:item.gameId,gname:item.name} }"
                         class="dis-b clearfix ps-r">
                     <div class="search-all-head rake-con-l  ps-a">
                         <i :class="{'ph': item.gameType == 2}"></i>

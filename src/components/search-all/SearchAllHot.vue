@@ -4,11 +4,11 @@
         <div v-for="item in showList" class="search-all-hot game-n ps-r clearfix border-bottom">
             <!--<div  class="game-n ps-r clearfix border-bottom">-->
             <router-link
-                    :to="{name:'ChooseClass' }"
+                    :to="{name:'ChooseClass', query:{gid:item[0]?item[0].gameId:'', gname:item[0]?item[0].gameName:''} }"
                     class="fl f32 color-000" v-text="item[0].gameName"></router-link>
             <i class="pa"></i>
             <router-link
-                    :to="{name:'ChooseClass' }"
+                    :to="{name:'ChooseClass', query:{gid:item[1]?item[1].gameId:'', gname:item[1]?item[1].gameName:''} }"
                     class="fl f32 color-000"><span v-text="item[1]?item[1].gameName:'' "></span></router-link>
         </div>
     </div>
@@ -53,7 +53,7 @@
     }
 </script>
 <style scoped>
-    .search-all-hot a{
+    .search-all-hot a {
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;

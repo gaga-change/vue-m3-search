@@ -1,7 +1,7 @@
 <template>
     <div v-if="show" class="hot pl-30 bg-fff border-bottom ">
         <h4 class="f30 color-999 border-bottom">5173热搜</h4>
-        <div v-for="item in showList" class="game-n ps-r clearfix border-bottom">
+        <div v-for="item in showList" class="search-all-hot game-n ps-r clearfix border-bottom">
             <!--<div  class="game-n ps-r clearfix border-bottom">-->
             <router-link
                     :to="{name:'ChooseClass' }"
@@ -52,3 +52,11 @@
         }
     }
 </script>
+<style scoped>
+    .search-all-hot a{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding-right: 0.2rem;
+    }
+</style>

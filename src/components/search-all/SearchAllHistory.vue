@@ -11,7 +11,7 @@
                 <router-link
                         :to="{name:'ChooseClass', query:{gid:item.catagoryId,gname:item.name,isRecharge: item.isRecharge} }"
                         class="dis-b clearfix ps-r">
-                    <div class="rake-con-l  ps-a">
+                    <div class="search-all-head rake-con-l  ps-a">
                         <i :class="{'ph': item.gameType == 2}"></i>
                         <h4 class="f32 color-000 dis-in" v-text="item.name"></h4>
                     </div>
@@ -58,3 +58,22 @@
 
     }
 </script>
+<style>
+    .search-all-head {
+        width: 100%;
+    }
+
+    .search-all-head i {
+        position: absolute;
+        top: 40%;
+    }
+
+    .search-all-head h4 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding-right: 0.2rem;
+        width: 91%;
+        padding-left: 0.5rem;
+    }
+</style>

@@ -17,13 +17,13 @@
         </div>
 
         <div v-if="!showOther" class="rake pl-30 bg-fff " style="position: absolute;width: 100%">
-            <div class="rake-con clearfix border-bottom" v-for="item in searchList">
+            <div class=" rake-con clearfix border-bottom" v-for="item in searchList">
                 <router-link
                         :to="{name:'ChooseClass', query:{gid:item.catagoryId,gname:item.name,isRecharge: item.isRecharge} }"
                         class="dis-b clearfix ps-r">
-                    <div class="rake-con-l  ps-a">
+                    <div class="search-all-head rake-con-l  ps-a">
                         <i :class="{'ph': item.gameType == 2}"></i>
-                        <h4 class="f32 color-000 dis-in" v-text="item.name"></h4>
+                        <h4 class=" f32 color-000 dis-in" v-text="item.name"></h4>
                     </div>
                     <img src="/images/common/right.png" class="ps-a "/>
                 </router-link>
@@ -56,7 +56,7 @@
                  *    触发回调事件，传回新的value值
                  *
                  */
-                let filterVal = val.trim().substr(0,20);
+                let filterVal = val.trim().substr(0, 20);
                 if (filterVal !== val) { //不等于，还原（有空格）
                     this.$refs.input.value = filterVal;
                 } else {
@@ -75,3 +75,23 @@
         }
     }
 </script>
+<style>
+    .search-all-head {
+        width: 100%;
+    }
+
+    .search-all-head i {
+        position: absolute;
+        top: 40%;
+    }
+
+    .search-all-head h4 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding-right: 0.2rem;
+        width: 91%;
+        padding-left: 0.5rem;
+    }
+
+</style>

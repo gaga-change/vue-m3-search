@@ -1,7 +1,6 @@
 /**
  * Created by 严俊东 on 2017/3/14.
  */
-let data = require('./games.json')
 
 /**
  * 搜索返回数据
@@ -29,7 +28,7 @@ function getHistory(num = 4) {
     return new Promise((resolve, reject) => {
         this.vm.$getAccount().then((account) => {
             if (account) {
-                console.log("有登入")
+                console.log("有登入");
                 this.vm.$http.post(
                     '/api/mobile-searchCenter-service/rs/userCache/listCache',
                     {pageSize: num}
@@ -51,13 +50,3 @@ function getHistory(num = 4) {
 }
 
 export {getHistory};
-
-// module.exports = getSearch;
-// return;
-//
-// getSearch(15).then(function (res) {
-//   console.log(res.list.length)
-// }, function () {
-//   console.log("err");
-// });
-//

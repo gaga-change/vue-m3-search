@@ -11,7 +11,7 @@
    *  }
  */
 
-function getHistory(num = 4) {
+function getHistory(num = 4, logined = false) {
     /**
      * 先判断是否登入：
      *   是
@@ -22,30 +22,35 @@ function getHistory(num = 4) {
      *          否： 创建LS缓存
      *
      */
-    //
-
 
     return new Promise((resolve, reject) => {
-        this.vm.$getAccount().then((account) => {
-            if (account) {
-                console.log("有登入");
-                this.vm.$http.post(
-                    '/api/mobile-searchCenter-service/rs/userCache/listCache',
-                    {pageSize: num}
-                ).then((res) => {
-                    let resp = res.body;
-                    console.log(resp);
-                    if (resp.result != null
-                        && resp.result.searchCacheEOList != null) {
-                        resolve({list: resp.result.searchCacheEOList})
-                    }
-                }, () => {
-                    console.error("请求异常： listCache")
-                });
+        if (logined) {
+            console.log("有登入");
+            this.vm.$http.post(
+                '/api/mobile-searchCenter-service/rs/userCache/listCache',
+                {pageSize: num}
+            ).then((res) => {
+                let resp = res.body;
+                console.log(resp);
+                if (resp.result != null
+                    && resp.result.searchCacheEOList != null) {
+                    resolve({list: resp.result.searchCacheEOList})
+                }
+            }, () => {
+                reject();
+                console.error("请求异常： listCache");
+            });
+        } else {
+            console.log("没登入");
+            if (localStorage.getItem('searchHistory')) {
+                let list = JSON.parse(localStorage.getItem('searchHistory')).list;
+                resolve({list: list})
             } else {
-                console.log("没登入")
+
+                localStorage.setItem('searchHistory', JSON.stringify({list: []}));
+                resolve({list: []})
             }
-        });
+        }
     })
 }
 

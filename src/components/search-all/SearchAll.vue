@@ -38,7 +38,8 @@
                 historyList: null, // 历史列表
                 searchList: null, // 搜索显示的列表
                 _num: null,  // 控制每种列表的显示条数（上线删除）
-                showOther: true // 控制历史记录、热搜不会和搜索引擎同时出现
+                showOther: true, // 控制历史记录、热搜不会和搜索引擎同时出现
+                _logined: null, // 当前登入状态，不能直接调用该变量
             }
         },
         components: {
@@ -47,9 +48,30 @@
             vueHot,
         },
         created(){
-            this.setNum();
+            this.setNum(); // 配置每一项的条数，必须先放在第一个条
+            this.getLoginState().then((logined) => {
+                this.setHistoryList(logined);
+            });
             this.setHostList();
-            this.setHistoryList();
+        },
+        beforeRouteLeave (to, from, next) {
+            if (to.query != null,
+                to.query.gid != null,
+                to.query.gname != null
+            ) {
+                console.log("进入保存流程")
+                this.getLoginState().then((logined) => {
+                    http.saveHistory({
+                        gameId: to.query.gid,
+                        name: to.query.gname,
+                        gameType: 2,
+                    }, logined);
+                    next();
+                });
+            } else {
+                next();
+            }
+            next();
         },
         methods: {
             setHostList() {
@@ -57,18 +79,14 @@
                     this.hotList = req.list;
                 })
             },
-            setHistoryList() {
-                http.getHistory(this._num.historyNum).then((req) => {
+            setHistoryList(logined) {
+                http.getHistory(this._num.historyNum, logined).then((req) => {
                     this.historyList = req.list;
-                }, () => {
-                    console.log("账号历史 数据请求错误");
                 })
             },
             setSearchList(str){
                 http.getSearch(this._num.searchNum, str).then((req) => {
                     this.searchList = req.list;
-                }, () => {
-                    console.log("账号历史 数据请求错误");
                 })
             },
             setNum() {
@@ -83,6 +101,29 @@
                     this.showOther = true;
                 }
                 this.setSearchList(this.searchInput)
+            },
+            /**
+             * 获取当前的登入状态
+             * @returns {Promise<T>|Promise}
+             */
+            getLoginState(){
+                return new Promise((resolve) => {
+                    if (this._logined != null) {
+                        resolve(this._logined);
+                    } else {
+                        this.$getAccount().then((account) => {
+                            if (account) {
+                                this._logined = true;
+                            } else {
+                                this._logined = false;
+                            }
+                            resolve(this._logined)
+                        }, () => {
+                            resolve(false);
+                        })
+                    }
+
+                })
             }
         }
     }

@@ -44,9 +44,12 @@ function getHistory(num = 4, logined = false) {
             console.log("没登入");
             if (localStorage.getItem('searchHistory')) {
                 let list = JSON.parse(localStorage.getItem('searchHistory')).list;
-                resolve({list: list})
+                resolve({
+                    list: list.filter((val, index) => {
+                        if (index < 4) return true; else return false
+                    })
+                })
             } else {
-
                 localStorage.setItem('searchHistory', JSON.stringify({list: []}));
                 resolve({list: []})
             }

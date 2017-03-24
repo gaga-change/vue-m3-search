@@ -56,7 +56,7 @@
                  *    触发回调事件，传回新的value值
                  *
                  */
-                let filterVal = val.trim();
+                let filterVal = val.trim().substr(0,20);
                 if (filterVal !== val) { //不等于，还原（有空格）
                     this.$refs.input.value = filterVal;
                 } else {

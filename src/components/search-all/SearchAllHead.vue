@@ -64,7 +64,7 @@
                 }
             },
             goBack () {
-                this.$router.go(-1);
+                location.href = this.$CONSTANTS.HOST;
             },
             clearValue(){
                 if (this.value != null && this.value.length > 0) {

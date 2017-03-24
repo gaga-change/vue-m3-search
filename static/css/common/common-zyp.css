@@ -17,7 +17,7 @@
 .fixedspace2{width: 100%;height: 2.06rem; margin-top:1px;}
 
 /*..................................历史记录................................*/
-.server-histore{position: fixed; top:.96rem; margin-top:1px; z-index: 61;background: #fff}
+.server-histore{position: fixed; top:.96rem; margin-top:1px; z-index: 61;background: #fff;max-width: 768px}
 .server-histore .histore-head{padding: .3rem;box-sizing: border-box;line-height: .48rem;height: 1.1rem;color: #000}
 .server-histore .histore-head i{float: right;width: .48rem;height: .48rem;color: #000;background: url(../../images/down4.png) right center no-repeat;background-size: .31rem!important}
 .server-histore .histore-head span{float: left;width: .53rem;height: .48rem;background: url(../../images/time.png) left center no-repeat;background-size: .35rem}

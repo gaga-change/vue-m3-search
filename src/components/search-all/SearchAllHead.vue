@@ -9,9 +9,13 @@
                         placeholder="请输入游戏名称或首字母"
                         :value="value"
                         @input="updateValue($event.target.value)">
+                <div class="header-l-ico ps-a" @click="clearValue">
+                    <img src="/images/common/del.png">
+                </div>
             </div>
             <h3 class="color-f7 f32 header-r" @click="goBack">取消</h3>
         </div>
+
         <div v-if="!showOther" class="rake pl-30 bg-fff " style="position: absolute;width: 100%">
             <div class="rake-con clearfix border-bottom" v-for="item in searchList">
                 <router-link
@@ -59,12 +63,13 @@
                     this.$emit('input', val)
                 }
             },
-            goBack: function () {
+            goBack () {
+                this.$router.go(-1);
+            },
+            clearValue(){
                 if (this.value != null && this.value.length > 0) {
                     this.$refs.input.value = '';
                     this.$emit('input', '');
-                } else {
-                    this.$router.go(-1);
                 }
             }
         }

@@ -115,6 +115,18 @@
     background-color: #fff;
     width: 100%;
 }
+.search2 .header .header-l-ico{
+    height: 100%;
+    width: 1.1rem;
+    right: 0;
+    text-align: center;
+}
+.search2 .header .header-l img{
+    height: .3rem;
+    width: .3rem;
+    top: 50%;
+    margin-top: -.1rem;
+}
 /*...................................搜索历史...................................*/
 .search2 .his{
     line-height: 1.1rem;

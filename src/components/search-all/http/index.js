@@ -6,6 +6,7 @@ import {getSearch} from './getSearch.js'
 import {getHistory} from './getHistory.js'
 import {getHot} from './getHot.js'
 import {saveHistory} from './saveHistory.js'
+import {getClass} from './getClass.js'
 import Vue from 'vue'
 
 
@@ -14,5 +15,6 @@ export default  {
     getSearch,
     getHistory,
     getHot,
-    saveHistory
+    saveHistory,
+    getClass
 }

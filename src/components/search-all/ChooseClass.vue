@@ -19,16 +19,13 @@
         <!---------------------------- 区服选择 ------------------------------>
         <div class="search-list pb-200 fw ">
             <div class="slist fw f30 bg-fff">
+                <ul class="style01" v-if="list ==null || list.length == 0">
+                    <li>没有商品类型。</li>
+                </ul>
                 <ul class="style03">
-                    <a>
-                        <li> 游戏币</li>
-                    </a>
-                    <a>
-                        <li>账号</li>
-                    </a>
-                    <a>
-                        <li>装备</li>
-                    </a>
+                    <li v-for="item in list">
+                        <router-link to="" v-text="item.goodsTypeName"></router-link>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -36,16 +33,35 @@
 </template>
 
 <script>
+    import http from './http'
     export default{
         data(){
             return {
-                title: ''
+                title: '',
+                list: []
             }
         },
         mounted(){
             if (this.$route != null && this.$route.query['gname'] != null) {
                 this.title = this.$route.query['gname'];
             }
+        },
+        beforeRouteEnter(to, from, next){
+            if (to.query.gid) {
+                http.getClass({gameId: to.query.gid}).then(list => {
+                    if(list){
+                        next(vm => {
+                            vm.list.push(...list.list);
+                        })
+                    }else {
+                        next();
+                    }
+                });
+            }else {
+                next();
+            }
         }
+
+
     }
 </script>

@@ -30,25 +30,30 @@ module.exports = {
         proxyTable: {
             // 搜索
             "/api/mobile-searchCenter-service": {
-                target: "http://192.168.42.214:8133/",
+                target: "http://172.16.76.116/",
                 changeOrigin: true,
-                pathRewrite: {'^/api/mobile-searchCenter-service': '/mobile-searchCenter-service'}
+                // pathRewrite: {'^/api/mobile-searchCenter-service': '/mobile-searchCenter-service'}
             },
             "/login/api/mobile-category-service": {
-                target: "http://mn.5173.cn/",
+                target: "http://172.16.76.116/",
                 changeOrigin: true,
                 pathRewrite: {'^/login/api/mobile-category-service': '/mobile-category-service'}
             },
             "/login/api/mobile-sms-service": {
-                target: "http://mn.5173.cn/",
+                target: "http://172.16.76.116/",
                 changeOrigin: true,
                 pathRewrite: {'^/login/api': '/api'}
             },
             "/login/mobile-user-service": {
-                target: "http://mn.5173.cn/",
+                target: "http://172.16.76.116/",
                 changeOrigin: true,
                 pathRewrite: {'^/login/mobile-user-service': '/mobile-user-service'}
-            }
+            },
+            "/api/mobile-category-service/rs": {
+                target: "http://172.16.76.116/",
+                changeOrigin: true,
+            },
+
         },
         // CSS Sourcemaps off by default because relative paths are "buggy"
         // with this option, according to the CSS-Loader README

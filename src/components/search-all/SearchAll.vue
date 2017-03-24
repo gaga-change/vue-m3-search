@@ -55,23 +55,33 @@
             this.setHostList();
         },
         beforeRouteLeave (to, from, next) {
+            console.log(to);
             if (to.query != null,
                 to.query.gid != null,
-                to.query.gname != null
+                to.query.gname != null,
+                to.query.gameType != null
             ) {
                 console.log("进入保存流程")
                 this.getLoginState().then((logined) => {
                     http.saveHistory({
                         gameId: to.query.gid,
                         name: to.query.gname,
-                        gameType: 2,
+                        gameType: to.query.gameType,
                     }, logined);
-                    next();
+                    if(to.query.gameType == 2) {
+                        let queryStr = '';
+                        for(let key in to.query) {
+                            queryStr += key + "=" + to.query[key] + "&"
+                        }
+                        window.location.href = this.$CONSTANTS.HOST + '/search/search-ptyys.html?'  + queryStr;
+                    }else {
+                        next();
+                    }
                 });
             } else {
+//                console.warn("参数不对，自动静止跳入下个页面")
                 next();
             }
-            next();
         },
         methods: {
             setHostList() {

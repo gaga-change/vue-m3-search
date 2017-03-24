@@ -25,9 +25,6 @@ routes.push(...[
         path: '/search-all/choose-class',
         name: 'ChooseClass',
         component: ChooseClass
-    }, {
-        path: '*',
-        redirect: '/help'
     }
 ]);
 export default new Router({

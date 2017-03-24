@@ -12,9 +12,7 @@
 // name
 // gameType
 function saveHistory(item, logined = false) {
-    console.log(item);
     return new Promise((resolve) => {
-        console.log(item);
         if (logined) {
             this.vm.$http.post(
                 this.vm.$CONSTANTS.APISearchCenter + 'userCache/save',

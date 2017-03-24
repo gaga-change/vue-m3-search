@@ -19,7 +19,7 @@
         <div v-if="!showOther" class="rake pl-30 bg-fff " style="position: absolute;width: 100%">
             <div class=" rake-con clearfix border-bottom" v-for="item in searchList">
                 <router-link
-                        :to="{name:'ChooseClass', query:{gid:item.gameId, gname:item.name} }"
+                        :to="{name:'ChooseClass', query:{gid:item.gameId, gname:item.name, gameType:item.gameType} }"
                         class="dis-b clearfix ps-r">
                     <div class="search-all-head rake-con-l  ps-a">
                         <i :class="{'ph': item.gameType == 2}"></i>

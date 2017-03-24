@@ -3,7 +3,8 @@
  */
 
 const CONSTANTS = {
-    API: '/api/'
+    API: '/api/',
+    HOST: 'http://mn.5173.cn'
     // API: './',
 };
 CONSTANTS.APIGoods = CONSTANTS.API + 'mobile-goods-service/rs/'; // 商品接口

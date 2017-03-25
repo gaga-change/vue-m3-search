@@ -23,8 +23,8 @@
                     <li>没有商品类型。</li>
                 </ul>
                 <ul class="style03">
-                    <li v-for="item in list">
-                        <router-link to="" v-text="item.goodsTypeName"></router-link>
+                    <li v-for="item in list" v-if="item.link">
+                        <a :href="item.link" v-text="item.goodsTypeName"></a>
                     </li>
                 </ul>
             </div>
@@ -33,32 +33,69 @@
 </template>
 
 <script>
+    /**
+     * 该Vue有设计缺陷，将来会有一种很好的方案代替  ps:严俊东
+     */
     import http from './http'
     export default{
         data(){
             return {
                 title: '',
+                gid: null,
                 list: []
             }
         },
         mounted(){
-            if (this.$route != null && this.$route.query['gname'] != null) {
+            if (this.$route != null
+                && this.$route.query['gname'] != null
+                && this.$route.query['gid'] != null) {
                 this.title = this.$route.query['gname'];
+                this.gid = this.$route.query['gid'];
             }
         },
         beforeRouteEnter(to, from, next){
             if (to.query.gid) {
                 http.getClass({gameId: to.query.gid}).then(list => {
-                    if(list){
+                    if (list) {
                         next(vm => {
+//                            console.log(list);
+                            vm.addLink(list.list);
                             vm.list.push(...list.list);
                         })
-                    }else {
+                    } else {
                         next();
                     }
                 });
-            }else {
+            } else {
                 next();
+            }
+        },
+        methods: {
+            addLink(list){
+                list.map((v) => {
+                    switch (v.goodsType) {
+                        case 1:
+                        // 装备
+                        case 3:
+                            // 游戏币
+                            v.link = this.$CONSTANTS.HOST + "/search/search-game-area.html?" +
+                                "gid=" + this.gid +
+                                "&gname=" + this.title +
+                                "&goodsType=" + v.goodsType +
+                                "&typename=" + v.goodsTypeName;
+                            break;
+                        case 2:
+                            // 账号
+                            v.link = this.$CONSTANTS.HOST + "/list-account.html?" +
+                                "gid=" + this.gid +
+                                "&gname=" + this.title +
+                                "&goodsType=" + v.goodsType +
+                                "&typename=" + v.goodsTypeName +
+                                "&areaname=全区&servername=全服"
+                            break;
+
+                    }
+                })
             }
         }
 

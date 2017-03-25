@@ -40,6 +40,9 @@
                 _num: null,  // 控制每种列表的显示条数（上线删除）
                 showOther: true, // 控制历史记录、热搜不会和搜索引擎同时出现
                 _logined: null, // 当前登入状态，不能直接调用该变量
+                _searchHtpSending: false, // 当前是否发出数据请求
+                _searchValue: null, // 最近一次发出的热搜请求 是发的什么字符串
+                _rejectValue: null // 拒绝请求的字符串
             }
         },
         components: {
@@ -55,31 +58,28 @@
             this.setHostList();
         },
         beforeRouteLeave (to, from, next) {
-            console.log(to);
             if (to.query != null,
                 to.query.gid != null,
                 to.query.gname != null,
                 to.query.gameType != null
             ) {
-                console.log("进入保存流程")
                 this.getLoginState().then((logined) => {
                     http.saveHistory({
                         gameId: to.query.gid,
                         name: to.query.gname,
                         gameType: to.query.gameType,
                     }, logined);
-                    if(to.query.gameType == 2) {
+                    if (to.query.gameType == 2) {
                         let queryStr = '';
-                        for(let key in to.query) {
+                        for (let key in to.query) {
                             queryStr += key + "=" + to.query[key] + "&"
                         }
-                        window.location.href = this.$CONSTANTS.HOST + '/search/search-ptyys.html?'  + queryStr;
-                    }else {
+                        location.href = this.$CONSTANTS.HOST + '/search/search-ptyys.html?' + queryStr;
+                    } else {
                         next();
                     }
                 });
             } else {
-//                console.warn("参数不对，自动静止跳入下个页面")
                 next();
             }
         },
@@ -94,9 +94,45 @@
                     this.historyList = req.list;
                 })
             },
-            setSearchList(str){
+            /**
+             * _recursion 递归使用，静止外部传值
+             */
+            setSearchList(str, _recursion = false){
+                /**
+                 * 如果没有请求到数据的字符串是在该str的开头，则直接拒进入
+                 */
+                if (this._rejectValue && str.startsWith(this._rejectValue)){
+                    this._searchHtpSending = false;
+                    this.searchList=[];
+//                    console.log("被直接拒进");
+                    return;
+                }
+
+                if (this._searchHtpSending && !_recursion){
+//                    console.log("搜索中 或是 没有允许递归");
+                    return;
+                }
+
+                this._searchValue = str;
+                this._searchHtpSending = true;
                 http.getSearch(this._num.searchNum, str).then((req) => {
+                    //
+                    if (req.list.length == 0) this._rejectValue = this._searchValue;
                     this.searchList = req.list;
+//                    this._searchHtpSending = false;
+                    /**
+                     * 判断当前str是否更新了。
+                     *   更新
+                     *      立马继续发
+                     *   没更新
+                     *      开发内部发送请求
+                     */
+                    if (this._searchValue != this.searchInput) {
+                        this.setSearchList(this.searchInput, true);
+                    } else {
+                        this._searchHtpSending = false;
+                    }
+
                 })
             },
             setNum() {

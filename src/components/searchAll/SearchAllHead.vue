@@ -13,7 +13,7 @@
                     <img src="/images/common/del.png">
                 </div>
             </div>
-            <h3 class="color-f7 f32 header-r" @click="goBack">取消</h3>
+            <a class="color-f7 f32 header-r" :href='host'>取消</a>
         </div>
 
         <div v-if="!showOther" class="rake pl-30 bg-fff " style="position: absolute;width: 100%">
@@ -46,6 +46,11 @@
             },
             showOther: {}
         },
+        data(){
+            return {
+                host: this.$CONSTANTS.HOST
+            }
+        },
         methods: {
             updateValue: function (val) {
                 /**
@@ -62,9 +67,6 @@
                 } else {
                     this.$emit('input', val)
                 }
-            },
-            goBack () {
-                location.href = this.$CONSTANTS.HOST;
             },
             clearValue(){
                 if (this.value != null && this.value.length > 0) {

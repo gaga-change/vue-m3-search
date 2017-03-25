@@ -12,5 +12,5 @@
 </script>
 
 <style>
-    @import "/css/common/common-zyp.css";
+
 </style>

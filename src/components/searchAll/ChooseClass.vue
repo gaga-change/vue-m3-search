@@ -78,7 +78,7 @@
                         // 装备
                         case 3:
                             // 游戏币
-                            v.link = this.$CONSTANTS.HOST + "/search/search-game-area.html?" +
+                            v.link = this.$CONSTANTS.HOST + "search/search-game-area.html?" +
                                 "gid=" + this.gid +
                                 "&gname=" + this.title +
                                 "&goodsType=" + v.goodsType +
@@ -86,7 +86,7 @@
                             break;
                         case 2:
                             // 账号
-                            v.link = this.$CONSTANTS.HOST + "/list-account.html?" +
+                            v.link = this.$CONSTANTS.HOST + "list-account.html?" +
                                 "gid=" + this.gid +
                                 "&gname=" + this.title +
                                 "&goodsType=" + v.goodsType +

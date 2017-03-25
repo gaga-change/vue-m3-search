@@ -74,7 +74,7 @@
                         for (let key in to.query) {
                             queryStr += key + "=" + to.query[key] + "&"
                         }
-                        location.href = this.$CONSTANTS.HOST + '/search/search-ptyys.html?' + queryStr;
+                        location.href = this.$CONSTANTS.HOST + 'search/search-ptyys.html?' + queryStr;
                     } else {
                         next();
                     }

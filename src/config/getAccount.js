@@ -3,9 +3,21 @@
  */
 
 function getAccount() {
+    this.$http.post(
+        '/api/mobile-searchCenter-service/rs/OnoffService/selectOnoff',
+        {"mapRequest": {"isAll": true}},
+        {
+            headers: {
+                contentType: "application/json; charset=UTF-8",
+                dataType: "json"
+            }
+        }
+    ).then((res) => {
+
+    });
     return new Promise((resolve, reject) => {
         this.$http.post(
-            '/login/mobile-user-service/rs/account/queryCurrentUserInfo',
+            this.$CONSTANTS.APILogin + 'account/queryCurrentUserInfo',
             {},
             {
                 headers: {

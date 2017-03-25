@@ -28,31 +28,41 @@ module.exports = {
         assetsSubDirectory: '',
         assetsPublicPath: '/',
         proxyTable: {
-            // 搜索
-            "/api/mobile-searchCenter-service": {
+            "/api": {
                 target: "http://172.16.76.116/",
                 changeOrigin: true,
                 // pathRewrite: {'^/api/mobile-searchCenter-service': '/mobile-searchCenter-service'}
             },
-            "/login/api/mobile-category-service": {
-                target: "http://172.16.76.116/",
-                changeOrigin: true,
-                pathRewrite: {'^/login/api/mobile-category-service': '/mobile-category-service'}
-            },
-            "/login/api/mobile-sms-service": {
-                target: "http://172.16.76.116/",
-                changeOrigin: true,
-                pathRewrite: {'^/login/api': '/api'}
-            },
-            "/login/mobile-user-service": {
-                target: "http://172.16.76.116/",
-                changeOrigin: true,
-                pathRewrite: {'^/login/mobile-user-service': '/mobile-user-service'}
-            },
-            "/api/mobile-category-service/rs": {
-                target: "http://172.16.76.116/",
-                changeOrigin: true,
-            },
+            // 搜索
+            // "/api/mobile-searchCenter-service": {
+            //     target: "http://172.16.76.116/",
+            //     changeOrigin: true,
+            //     // pathRewrite: {'^/api/mobile-searchCenter-service': '/mobile-searchCenter-service'}
+            // },
+            // "/api/mobile-user-service": {
+            //     target: "http://172.16.76.116/",
+            //     changeOrigin: true,
+            //     pathRewrite: {'^/login/mobile-user-service': '/mobile-user-service'}
+            // },
+            // "/login/api/mobile-category-service": {
+            //     target: "http://172.16.76.116/",
+            //     changeOrigin: true,
+            //     pathRewrite: {'^/login/api/mobile-category-service': '/mobile-category-service'}
+            // },
+            // "/login/api/mobile-sms-service": {
+            //     target: "http://172.16.76.116/",
+            //     changeOrigin: true,
+            //     pathRewrite: {'^/login/api': '/api'}
+            // },
+            // "/login/mobile-user-service": {
+            //     target: "http://172.16.76.116/",
+            //     changeOrigin: true,
+            //     pathRewrite: {'^/login/mobile-user-service': '/mobile-user-service'}
+            // },
+            // "/api/mobile-category-service/rs": {
+            //     target: "http://172.16.76.116/",
+            //     changeOrigin: true,
+            // },
 
         },
         // CSS Sourcemaps off by default because relative paths are "buggy"

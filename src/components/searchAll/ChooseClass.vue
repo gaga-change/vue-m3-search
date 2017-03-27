@@ -74,16 +74,6 @@
             addLink(list){
                 list.map((v) => {
                     switch (v.goodsType) {
-                        case 1:
-                        // 装备
-                        case 3:
-                            // 游戏币
-                            v.link = this.$CONSTANTS.HOST + "search/search-game-area.html?" +
-                                "gid=" + this.gid +
-                                "&gname=" + this.title +
-                                "&goodsType=" + v.goodsType +
-                                "&typename=" + v.goodsTypeName;
-                            break;
                         case 2:
                             // 账号
                             v.link = this.$CONSTANTS.HOST + "list-account.html?" +
@@ -93,12 +83,15 @@
                                 "&typename=" + v.goodsTypeName +
                                 "&areaname=全区&servername=全服"
                             break;
-
+                        default:
+                            v.link = this.$CONSTANTS.HOST + "search/search-game-area.html?" +
+                                "gid=" + this.gid +
+                                "&gname=" + this.title +
+                                "&goodsType=" + v.goodsType +
+                                "&typename=" + v.goodsTypeName;
                     }
                 })
             }
         }
-
-
     }
 </script>
